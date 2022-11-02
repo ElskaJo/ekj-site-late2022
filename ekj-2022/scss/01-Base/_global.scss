@@ -1,0 +1,27 @@
+@use 'fonts' as *;
+@use '../0-Abstracts/variables' as *;
+@use '../0-Abstracts/mixins' as *;
+
+html, body {
+   height: 100%; // required for sinking footer.
+ }
+ 
+ body {
+   font-size: 16px; // everything else should be rem
+   font-family: $body-font-family;
+   color: var(--body-txt);
+   line-height: 1.8;
+   background: var(--body-bg-color);
+   position:relative;
+ }
+ 
+ main {
+   position: relative;
+   grid-area: body;
+ }
+
+ // for now 
+ aside {
+  display: none;
+ }
+

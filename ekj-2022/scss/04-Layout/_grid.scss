@@ -1,0 +1,12 @@
+// sets up the grid. obviously. 
+
+// sets up the overall site grid.
+.global_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+  "header body body"
+  "header footer footer";
+  min-height: 100vh;
+}
+

@@ -1,0 +1,45 @@
+
+@use '../0-Abstracts/variables' as *;
+@use '../01-Base/fonts' as *;
+@use '../0-Abstracts/mixins' as *;
+
+.site-nav {
+  background: var(--nav-bg);
+  position: fixed;
+  top: -1rem;
+  transform-origin:top left;
+  transform:translateY(0%) rotate(3deg);
+  width: 12rem;
+  height: 102vh;
+
+  // the button for mobile. toggled class added on click.
+  .menu-toggle {
+    @media screen and (min-width: $ipad-pro_breakpoint) {
+      display: none; // as readers don't need it to expand the menu.
+    }
+  }
+
+  .site-nav-translate {
+      transform-origin: top left;
+      transform: translateY(0%) rotate(-3deg);
+      text-align:right;
+      padding: 3rem 1rem 0;
+      font-family: $alt-title-font;
+      font-weight: 300;
+      width: 110%; // pushes it a bit to the right, so the hover/current/focus state pushes out 
+
+      li a {
+        padding: 0.35rem 2rem 0.35rem 0;
+        text-decoration: dotted;
+        color: white;
+        display: block; // so it fills the space it has
+        transition: all 0.5s; // not so jarring animation
+
+        @include hover {
+
+          background: var(--nav-link-bg--hover);
+        }
+      }
+  }
+ 
+}

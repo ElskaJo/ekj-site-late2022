@@ -1,0 +1,35 @@
+// we're going to attack this differently this time. I've learned new shit. 
+
+
+$black: #000000;
+$white: #ffffff;
+
+
+$burnt-charcoal: #242424;
+$pale-grey: #c4c4c4;
+$nearly-white: #F5F4F2;
+
+
+// sizes
+$ipad_breakpoint: 768px;
+$ipad-pro_breakpoint: 1024px;
+$mid-desktop_breakpoint: 1600px;
+$lg-desktop_breakpoint: 2400px;
+
+// setting up variables
+:root {
+
+    --body-bg-color: #252525;
+    --body-txt: #242424;
+
+    --highlight-color: #67cbfe;
+
+    --branding-bg: #070707;
+    --logo-color: #909090;
+    --nav-bg: rgba(24, 26, 28, 77%);
+
+    // link colors 
+    --nav-link-color: #ffffff;
+    --nav-link-color--hover: ;
+    --nav-link-bg--hover: rgba(0,0,0,0.6);
+}
