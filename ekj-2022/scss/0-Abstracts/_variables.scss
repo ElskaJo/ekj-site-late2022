@@ -19,7 +19,7 @@ $lg-desktop_breakpoint: 2400px;
 // setting up variables
 :root {
 
-    --body-bg-color: #252525;
+    --body-bg-color: #222222;
     --body-txt: #242424;
 
     --highlight-color: #67cbfe;
@@ -30,6 +30,6 @@ $lg-desktop_breakpoint: 2400px;
 
     // link colors 
     --nav-link-color: #ffffff;
-    --nav-link-color--hover: ;
-    --nav-link-bg--hover: rgba(0,0,0,0.6);
+    --nav-link-color--hover: #F1A207;
+
 }

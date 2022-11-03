@@ -1,13 +1,12 @@
 :root {
-  --body-bg-color: #252525;
+  --body-bg-color: #222222;
   --body-txt: #242424;
   --highlight-color: #67cbfe;
   --branding-bg: #070707;
   --logo-color: #909090;
   --nav-bg: rgba(24, 26, 28, 77%);
   --nav-link-color: #ffffff;
-  --nav-link-color--hover: ;
-  --nav-link-bg--hover: rgba(0,0,0,0.6);
+  --nav-link-color--hover: #F1A207;
 }
 
 *, *::after, *::before {
@@ -225,6 +224,33 @@ aside {
   display: none;
 }
 
+a {
+  transition: all 0.5s;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .site-header {
   position: relative;
   height: 100vh;
@@ -235,11 +261,11 @@ aside {
   text-transform: uppercase;
   font-family: "Merriweather", sans-serif;
   position: fixed;
-  bottom: -1rem;
+  bottom: -0.5rem;
+  top: 0;
+  left: 0;
   transform-origin: top left;
-  transform: translateY(100%) rotate(-93deg);
-  width: 102vh;
-  height: 8rem;
+  transform: translateY(0%) rotate(-2deg);
   z-index: 2;
   display: flex;
   align-items: flex-end;
@@ -247,13 +273,26 @@ aside {
 }
 .site-branding .site-title {
   transform-origin: top left;
-  transform: translateY(0%) rotate(3deg);
-  padding: 1rem 2rem 1rem 0;
+  transform: translateY(10%) rotate(3deg);
+  padding: 2rem 3rem 0.5rem 0rem;
 }
 .site-branding a {
   color: var(--logo-color);
   text-decoration: none;
   font-size: 2rem;
+}
+@media (hover: none) {
+  .site-branding a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .site-branding a:active, .site-branding a:focus, .site-branding a:focus-within {
+    outline: 2px solid var(--focus__outline-color);
+  }
+}
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .site-branding a:hover {
+    color: white;
+  }
 }
 
 .site-nav {
@@ -277,15 +316,14 @@ aside {
   padding: 3rem 1rem 0;
   font-family: "Merriweather", sans-serif;
   font-weight: 300;
-  width: 110%;
+  width: 100%;
 }
 .site-nav .site-nav-translate li a {
-  padding: 0.35rem 2rem 0.35rem 0;
+  padding: 0.35rem 1rem 0.35rem 0;
   -webkit-text-decoration: dotted;
           text-decoration: dotted;
   color: white;
   display: block;
-  transition: all 0.5s;
 }
 @media (hover: none) {
   .site-nav .site-nav-translate li a {
@@ -297,7 +335,7 @@ aside {
 }
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .site-nav .site-nav-translate li a:hover {
-    background: var(--nav-link-bg--hover);
+    color: var(--nav-link-color--hover);
   }
 }
 
@@ -312,6 +350,30 @@ aside {
   min-height: 100vh;
 }
 
+.home-feature-1 {
+  background: linear-gradient(132deg, #830101, #580181, #232222);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+          animation: Gradient 15s ease infinite;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0px;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 /*!
 Theme Name: ekj-2022
 Theme URI: http://underscores.me/

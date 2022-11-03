@@ -1,4 +1,5 @@
 @use '../01-Base/fonts' as *;
+@use '../0-Abstracts/mixins' as *;
 
 .site-header {
     position: relative;
@@ -10,11 +11,13 @@
     text-transform: uppercase;
     font-family: $alt-title-font;
     position: fixed;
-    bottom: -1rem;
+    bottom: -0.5rem;
+    top:0;
+    left: 0;
     transform-origin:top left;
-    transform:translateY(100%) rotate(-93deg);
-    width: 102vh; // keeps the edges of our skewed div invisible
-    height: 8rem; // width, technically
+    transform:translateY(0%) rotate(-2deg);
+    // width: 102%; // keeps the edges of our skewed div invisible
+    // height: 8rem; // width, technically
     z-index: 2;
     display: flex;
     align-items: flex-end;
@@ -22,14 +25,18 @@
    
     .site-title {
         transform-origin: top left;
-        transform: translateY(0%) rotate(3deg);
-        padding: 1rem 2rem 1rem 0;
+        transform: translateY(10%) rotate(3deg);
+        padding: 2rem 3rem 0.5rem 0rem;
     }
 
     a {
         color: var(--logo-color);
         text-decoration: none;
         font-size: 2rem;
+
+        @include hover {
+            color: white;
+        }
     }
 }
 
