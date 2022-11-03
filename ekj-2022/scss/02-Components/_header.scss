@@ -1,29 +1,27 @@
 @use '../01-Base/fonts' as *;
 
 .site-header {
-    position: relative;
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
 }
 
 .site-branding {
-    background: var(--branding-bg);
     text-transform: uppercase;
     font-family: $alt-title-font;
-    position: fixed;
-    bottom: -1rem;
-    transform-origin:top left;
-    transform:translateY(100%) rotate(-93deg);
-    width: 102vh; // keeps the edges of our skewed div invisible
-    height: 8rem; // width, technically
-    z-index: 2;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    order: 2;
    
     .site-title {
         transform-origin: top left;
-        transform: translateY(0%) rotate(3deg);
-        padding: 1rem 2rem 1rem 0;
+        transform: translateY(325%) rotate(-90deg);
+        padding: 0.5rem 1rem 1rem 0;
     }
 
     a {

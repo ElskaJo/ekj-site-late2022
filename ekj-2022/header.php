@@ -48,17 +48,11 @@
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="site-nav">
-				<div class="site-nav-translate">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ekj-2022' ); ?></button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-					?>
-				</div>
+			<nav id="site-navigation" class="site-nav" role="navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open the menu">
+						<span>Menu</span>
+						<div class="nav-arrow closed"></div>
+					</button>
+					<?php wp_nav_menu( array('theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'container_class' => 'nav-container' ) ); ?>
 			</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

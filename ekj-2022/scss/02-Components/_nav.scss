@@ -4,42 +4,122 @@
 @use '../0-Abstracts/mixins' as *;
 
 .site-nav {
-  background: var(--nav-bg);
-  position: fixed;
-  top: -1rem;
-  transform-origin:top left;
-  transform:translateY(0%) rotate(3deg);
-  width: 12rem;
-  height: 102vh;
+  order: 1;
 
   // the button for mobile. toggled class added on click.
   .menu-toggle {
-    @media screen and (min-width: $ipad-pro_breakpoint) {
-      display: none; // as readers don't need it to expand the menu.
+    background: var(--nav-button-bg);
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    transition: 0.5s all;
+    border-style: none;
+    
+    @include hover {
+      background: var(--nav-button-bg--hover);
+    }
+
+    // hiding the text from all but screen readers.
+       // hiding the 'menu' text for all but screen readers 
+    span {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
     }
   }
 
-  .site-nav-translate {
-      transform-origin: top left;
-      transform: translateY(0%) rotate(-3deg);
-      text-align:right;
-      padding: 3rem 1rem 0;
+  // our arrow 
+  .nav-arrow {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--nav-button-arrow);
+    box-sizing: border-box;
+
+    &:after, &:before {
+      content: "";
+      box-sizing: border-box;
+    }
+
+    &.closed {
+      width: 20px;
+      height: 20px;
+      border-width: 4px 4px 0 0;
+      border-style: solid;
+      margin: 10px;
+      transform: rotate(90deg);
+
+      &:before {
+        right: 0;
+        top: -3px;
+        position: absolute;
+        height: 4px;
+        box-shadow: inset 0 0 0 32px;
+        transform: rotate(-45deg);
+        width: 23px;
+        transform-origin: right top;
+      }
+    }
+  }
+
+  // contains our ul that we're showing/hiding
+  .nav-container {
       font-family: $alt-title-font;
       font-weight: 300;
-      width: 110%; // pushes it a bit to the right, so the hover/current/focus state pushes out 
+      font-size: 2rem;
 
-      li a {
-        padding: 0.35rem 2rem 0.35rem 0;
-        text-decoration: dotted;
-        color: white;
-        display: block; // so it fills the space it has
-        transition: all 0.5s; // not so jarring animation
+      ul {
+        // undoing defaults
+        list-style-type: none;
+        margin: 0;
+        // making sure our bg shows up against the site's
+        background: var(--nav__mobile-bg);
+        // now we hide it from view
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        // as this is what we're animating
+        width: 0; 
+        // the animation itself
+        transition: width 1s cubic-bezier(0.42, 0, 0.58, 1);
+        // positioning content
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+      }
+      
+      li {
+        // so we make sure those of us with bigger thumbs, don't hit more than one link at a time on mobile/tablet/touch
+        margin: 0.5rem 0;
+
+        a {
+        padding: 0.5rem 1rem;
+        text-decoration-style: dotted;
+        color: var(--nav-link-color);
+        // so it fills the space it has
+        display: block; 
+        // not so jarring animation
+        transition: all 0.5s; 
 
         @include hover {
-
-          background: var(--nav-link-bg--hover);
+          color: var(--nav-link-color--hover);
         }
       }
+    }
   }
- 
+
+  // and when the parent is toggled: 
+  &.toggled {
+    .nav-container ul {
+      // this is all we need to do, to bring it back into view
+        width: 100%;
+    }
+  }
 }
