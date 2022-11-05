@@ -1,4 +1,5 @@
 @use '../01-Base/fonts' as *;
+@use '../0-Abstracts/mixins' as *;
 
 .site-header {
     position: fixed;
@@ -16,18 +17,55 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    order: 2;
-   
+   // flipping the name sideways
     .site-title {
         transform-origin: top left;
-        transform: translateY(325%) rotate(-90deg);
-        padding: 0.5rem 1rem 1rem 0;
-    }
-
-    a {
-        color: var(--logo-color);
-        text-decoration: none;
-        font-size: 2rem;
+        transform: translateY(447%) rotate(-90deg);
+        padding: 0;
     }
 }
 
+// animating my name's colors for regular state, and on hover. focus state incorporated into the mixin
+.site-title a {
+    // starting and ending with the same color gives us a seamless transition when the animation loops
+    background-image: linear-gradient(
+        -225deg,
+        #d21515 0%,
+        #f9671f 14%,
+        #f6cc95 28%,
+        #9ed18f 42%,
+        #74c7fa 56%,
+        #5871ee 70%,
+        #9f51f8 84%,
+        #d21515 100%
+      );
+    // clipping the background so it doesn't leak everywhere
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    // as a backup
+    color: var(--nav-link-color);
+    -webkit-text-fill-color: transparent;
+    animation: textclip 20s linear infinite;
+
+    text-decoration: none;
+    font-size: 3rem;
+
+    // here we change the bg colors for hover
+    @include hover {
+        background-image: linear-gradient(
+        -225deg,
+        rgba(196, 63, 76, 1) 0%,
+        #ffffff 33%,
+        #3dbff3 66%,
+        rgba(196, 63, 76, 1) 100%
+      );
+    }
+}
+    
+    @keyframes textclip {
+      to {
+        background-position: 200% center;
+      }
+    }

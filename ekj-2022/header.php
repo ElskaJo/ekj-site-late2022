@@ -29,6 +29,14 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ekj-2022' ); ?></a>
 
 	<header id="masthead" class="site-header">
+			<nav id="site-navigation" class="site-nav" role="navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open the menu">
+						<span>Menu</span>
+						<div class="nav-arrow"></div>
+					</button>
+					<?php wp_nav_menu( array('theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'container_class' => 'nav-container' ) ); ?>
+			</nav><!-- #site-navigation -->
+
 			<div class="site-branding">
 				<?php
 				the_custom_logo();
@@ -48,11 +56,5 @@
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="site-nav" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open the menu">
-						<span>Menu</span>
-						<div class="nav-arrow closed"></div>
-					</button>
-					<?php wp_nav_menu( array('theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'container_class' => 'nav-container' ) ); ?>
-			</nav><!-- #site-navigation -->
+			
 	</header><!-- #masthead -->

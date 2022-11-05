@@ -4,7 +4,7 @@
 @use '../0-Abstracts/mixins' as *;
 
 .site-nav {
-  order: 1;
+  z-index: 3;
 
   // the button for mobile. toggled class added on click.
   .menu-toggle {
@@ -19,8 +19,7 @@
       background: var(--nav-button-bg--hover);
     }
 
-    // hiding the text from all but screen readers.
-       // hiding the 'menu' text for all but screen readers 
+    // hiding the 'menu' text for all but screen readers 
     span {
       position: absolute;
       clip: rect(1px, 1px, 1px, 1px);
@@ -40,18 +39,17 @@
     color: var(--nav-button-arrow);
     box-sizing: border-box;
 
-    &:after, &:before {
-      content: "";
-      box-sizing: border-box;
-    }
-
-    &.closed {
       width: 20px;
       height: 20px;
       border-width: 4px 4px 0 0;
       border-style: solid;
       margin: 10px;
       transform: rotate(90deg);
+
+    &:after, &:before {
+      content: "";
+      box-sizing: border-box;
+    }
 
       &:before {
         right: 0;
@@ -63,13 +61,13 @@
         width: 23px;
         transform-origin: right top;
       }
-    }
+    
   }
 
   // contains our ul that we're showing/hiding
   .nav-container {
       font-family: $alt-title-font;
-      font-weight: 300;
+      font-weight: 100;
       font-size: 2rem;
 
       ul {
