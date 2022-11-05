@@ -2,41 +2,70 @@
 @use '../0-Abstracts/mixins' as *;
 
 .site-header {
-    position: relative;
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
 }
 
 .site-branding {
-    background: var(--branding-bg);
     text-transform: uppercase;
     font-family: $alt-title-font;
-    position: fixed;
-    bottom: -0.5rem;
-    top:0;
-    left: 0;
-    transform-origin:top left;
-    transform:translateY(0%) rotate(-2deg);
-    // width: 102%; // keeps the edges of our skewed div invisible
-    // height: 8rem; // width, technically
-    z-index: 2;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-   
+   // flipping the name sideways
     .site-title {
         transform-origin: top left;
-        transform: translateY(10%) rotate(3deg);
-        padding: 2rem 3rem 0.5rem 0rem;
-    }
-
-    a {
-        color: var(--logo-color);
-        text-decoration: none;
-        font-size: 2rem;
-
-        @include hover {
-            color: white;
-        }
+        transform: translateY(447%) rotate(-90deg);
+        padding: 0;
     }
 }
 
+// animating my name's colors for regular state, and on hover. focus state incorporated into the mixin
+.site-title a {
+    // starting and ending with the same color gives us a seamless transition when the animation loops
+    background-image: linear-gradient(
+        -225deg,
+        #d21515 0%,
+        #f9671f 14%,
+        #f6cc95 28%,
+        #9ed18f 42%,
+        #74c7fa 56%,
+        #5871ee 70%,
+        #9f51f8 84%,
+        #d21515 100%
+      );
+    // clipping the background so it doesn't leak everywhere
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    // as a backup
+    color: var(--nav-link-color);
+    -webkit-text-fill-color: transparent;
+    animation: textclip 20s linear infinite;
+
+    text-decoration: none;
+    font-size: 3rem;
+
+    // here we change the bg colors for hover
+    @include hover {
+        background-image: linear-gradient(
+        -225deg,
+        rgba(196, 63, 76, 1) 0%,
+        #ffffff 33%,
+        #3dbff3 66%,
+        rgba(196, 63, 76, 1) 100%
+      );
+    }
+}
+    
+    @keyframes textclip {
+      to {
+        background-position: 200% center;
+      }
+    }

@@ -8,7 +8,8 @@ $white: #ffffff;
 $burnt-charcoal: #242424;
 $pale-grey: #c4c4c4;
 $nearly-white: #F5F4F2;
-
+$sunshine-yellow: #F1A207;
+$warm-pink: #f25c5c;
 
 // sizes
 $ipad_breakpoint: 768px;
@@ -19,17 +20,27 @@ $lg-desktop_breakpoint: 2400px;
 // setting up variables
 :root {
 
-    --body-bg-color: #222222;
-    --body-txt: #242424;
+    --body-bg-color: #181818;
+    --body-txt: #F5F4F2;
 
-    --highlight-color: #67cbfe;
+    --highlight-color: #fae5ba;
 
-    --branding-bg: #070707;
-    --logo-color: #909090;
-    --nav-bg: rgba(24, 26, 28, 77%);
+    --logo-color: #f25c5c;
+    --logo-color--hover: #F1A207;
+
+
+    // default focus outline site wide
+    --focus__outline-color: #fff;
 
     // link colors 
+    // nav 
+    --nav-button-bg: #F1A207;
+    --nav-button-arrow: #000;
+    --nav-button-bg--hover: #f25c5c;
     --nav-link-color: #ffffff;
     --nav-link-color--hover: #F1A207;
+    --nav__mobile-bg: rgba(0,0,0,0.9);
 
+    // text links 
+    --txt-link-color: #fc8585;
 }
