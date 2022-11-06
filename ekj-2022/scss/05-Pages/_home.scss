@@ -1,24 +1,33 @@
-// the animation for section 1
-.home-feature-1 {
-  background: linear-gradient(132deg, #830101, #580181, #232222);
-  background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  padding:0;
-  margin:0px;
-}
+@use '../01-Base/animations';
 
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
+
+
+
+// the intro on the home page.
+// blows my mind that I can use my own codepen, years later, and it still works beautifully with a small footprint.
+.home-feed {
+  // first we make all instances of this transparent. 
+  opacity: 0; 
+  // as we're using the same animation for each instance, call it here so we're not repeating it
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+
+  // then define the animation delay in each class
+  &.first {
+    animation-delay: 1s;
   }
-  50% {
-    background-position: 100% 50%;
+  &.second {
+    animation-delay: 3s;
   }
-  100% {
-    background-position: 0% 50%;
+  &.third {
+    animation-delay: 5s;
   }
-}
+  &.fourth {
+    animation-delay: 7s;
+  }
+  &.fifth {
+    animation-delay: 9s;
+  }
+  &.sixth {
+    animation-delay: 11s;
+  }
+ }

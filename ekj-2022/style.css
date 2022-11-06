@@ -238,27 +238,25 @@ a {
   transition: all 0.5s;
 }
 
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 .site-header {
@@ -443,30 +441,36 @@ a {
   min-height: 100vh;
 }
 
-.home-feature-1 {
-  background: linear-gradient(132deg, #830101, #580181, #232222);
-  background-size: 400% 400%;
-  -webkit-animation: Gradient 15s ease infinite;
-          animation: Gradient 15s ease infinite;
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  padding: 0;
-  margin: 0px;
+.home-feed {
+  opacity: 0;
+  -webkit-animation: fadeInUp 1s ease-in-out 0s forwards;
+          animation: fadeInUp 1s ease-in-out 0s forwards;
+}
+.home-feed.first {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.home-feed.second {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+.home-feed.third {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+.home-feed.fourth {
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+.home-feed.fifth {
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+}
+.home-feed.sixth {
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
 }
 
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 /*!
 Theme Name: ekj-2022
 Theme URI: http://underscores.me/
